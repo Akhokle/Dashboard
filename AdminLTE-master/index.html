@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Dashboard 3</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <!-- IonIcons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+</head>
+<!--
+`body` tag options:
+
+  Apply one or more of the following classes to to the body tag
+  to get the desired effect
+
+  * sidebar-collapse
+  * sidebar-mini
+-->
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+
+      </ul>
+
+      <!-- SEARCH FORM -->
+      <form class="form-inline ml-3">
+        <div class="input-group input-group-sm">
+          <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-navbar" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Right navbar links -->
+
+    </nav>
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="index3.html" class="brand-link">
+        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Sample Project</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <!--<img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">-->
+          </div>
+          <div class="info">
+            <a href="#" class="d-block">Amay Khokle</a>
+          </div>
+        </div>
+
+        
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <li class="nav-item">
+              <a href="./index.html" class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-12">
+              <h1 class="m-0 text-dark">Dashboard</h1>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Heat Map</h3>
+                    <!--<a href="javascript:void(0);">View Report</a>-->
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-2">
+                      <div class="form-group">
+                        <label>From Year</label>
+                        <select id="fromYearchart" class="form-control fromYear">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-2">
+                      <div class="form-group">
+                        <label>To Year</label>
+                        <select id="toYearchart" class="form-control toYear">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-2">
+                      <div class="form-group">
+                        <label>
+                          Horizontal Axis
+                        </label>
+                        <select id="" class="form-control horizontal">
+                          <option value="topic">Topic</option>
+                          <option value="region">Region</option>
+                          <option value="pestle">Pestle</option>
+                          <option value="country" selected>Country</option>
+                          <option value="sector">Sector</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-2">
+                      <div class="form-group">
+                        <label>
+                          Vertical Axis
+                        </label>
+                        <select id="vertical" class="form-control">
+                          <option value="topic">Topic</option>
+                          <option value="region" selected>Region</option>
+                          <option value="pestle">Pestle</option>
+                          <option value="country">Country</option>
+                          <option value="sector">Sector</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-2">
+                      <div class="form-group">
+                        <label>
+                          Measures
+                        </label>
+                        <select id="measures" class="form-control">
+                          <option value="impact" selected>Impact</option>
+                          <option value="likelihood">Likelihood</option>
+                          <option value="relevance">Relevance</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="position-relative mb-4" id="graph-container">
+                    <canvas id="visitors-chart1" height="200"></canvas>
+                  </div>
+
+                  <div class="d-flex flex-row justify-content-end" id="colorcode">
+                    <span class="mr-2">
+                      <i class="fas fa-square text-red"></i> High
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-square text-yellow"></i> Medium
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-square text-green"></i> Low
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card -->
+
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="card-title">DataTable</h3>
+                </div>
+
+
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-2">
+                      <div class="form-group">
+                        <label>From Year</label>
+                        <select id="fromYear" class="form-control fromYear">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-2">
+                      <div class="form-group">
+                        <label>To Year</label>
+                        <select id="toYear" class="form-control toYear">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label>Topic</label>
+                        <select id="topic" class="form-control">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label>Region</label>
+                        <select id="region" class="form-control">
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label>Pestle</label>
+                        <select id="pestle" class="form-control">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label>Country</label>
+                        <select id="country" class="form-control">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label>Sector</label>
+                        <select id="sector" class="form-control">
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <table id="example55" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Sector</th>
+                        <th>Topic</th>
+                        <th>Title</th>
+                        <th>Region</th>
+                        <th>Pestle</th>
+                        <th>Source</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+
+                    <tfoot>
+                      <tr>
+                        <th>Sector</th>
+                        <th>Topic</th>
+                        <th>Title</th>
+                        <th>Region</th>
+                        <th>Pestle</th>
+                        <th>Source</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col-md-6 -->
+
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      
+    </footer>
+  </div>
+  <!-- ./wrapper -->
+  <!-- REQUIRED SCRIPTS -->
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables -->
+  <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <!-- AdminLTE -->
+  <script src="dist/js/adminlte.js"></script>
+
+  <!-- OPTIONAL SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="dist/js/demo.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="dist/js/pages/dashboard.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="dist/js/demo.js"></script>
+  <script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true,
+        "autoWidth": false,
+      });
+      //$('#example2').DataTable({
+      //  "paging": true,
+      //  "lengthChange": false,
+      //  "searching": false,
+      //  "ordering": true,
+      //  "info": true,
+      //  "autoWidth": false,
+      //  "responsive": true,
+      //});
+    });
+  </script>
+</body>
+</html>
